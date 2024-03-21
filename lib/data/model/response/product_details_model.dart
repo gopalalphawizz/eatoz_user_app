@@ -13,6 +13,7 @@ class ProductDetailsModel {
   String? _unit;
   int? _minQty;
   int? _refundable;
+  String? _productindicator;
   String? _digitalProductType;
   String? _digitalFileReady;
   List<String>? _images;
@@ -67,6 +68,7 @@ class ProductDetailsModel {
         String? unit,
         int? minQty,
         int? refundable,
+        String? productindicator,
         String? digitalProductType,
         String? digitalFileReady,
         List<String>? images,
@@ -140,6 +142,9 @@ class ProductDetailsModel {
     }
     if (refundable != null) {
       _refundable = refundable;
+    }
+    if (productindicator != null) {
+      _productindicator = productindicator;
     }
     if (digitalProductType != null) {
       _digitalProductType = digitalProductType;
@@ -277,6 +282,7 @@ class ProductDetailsModel {
   String? get unit => _unit;
   int? get minQty => _minQty;
   int? get refundable => _refundable;
+  String? get productindicator => _productindicator;
   String? get digitalProductType => _digitalProductType;
   String? get digitalFileReady => _digitalFileReady;
   List<String>? get images => _images;
@@ -335,6 +341,7 @@ class ProductDetailsModel {
     _unit = json['unit'];
     _minQty = json['min_qty'];
     _refundable = json['refundable'];
+    _productindicator = json['product_indicator'];
     _digitalProductType = json['digital_product_type'];
     _digitalFileReady = json['digital_file_ready'];
     _images = json['images'].cast<String>();
@@ -417,6 +424,7 @@ class ProductDetailsModel {
     data['unit'] = _unit;
     data['min_qty'] = _minQty;
     data['refundable'] = _refundable;
+    data['product_indicator']=_productindicator;
     data['digital_product_type'] = _digitalProductType;
     data['digital_file_ready'] = _digitalFileReady;
     data['images'] = _images;

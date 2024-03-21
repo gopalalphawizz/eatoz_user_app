@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_sixvalley_ecommerce/data/model/response/product_model.dart';
 import 'package:flutter_sixvalley_ecommerce/helper/price_converter.dart';
@@ -56,6 +58,7 @@ class ProductWidget extends StatelessWidget {
               ),
             ),
 
+
             // Product Details
             Padding(
               padding: const EdgeInsets.only(top :Dimensions.paddingSizeSmall,bottom: 5, left: 5,right: 5),
@@ -86,7 +89,11 @@ class ProductWidget extends StatelessWidget {
                     ]),
                     const SizedBox(height: Dimensions.paddingSizeExtraSmall),
 
-
+                    Text(PriceConverter.convertPrice(context,
+                        productModel.unitPrice, discountType: productModel.discountType,
+                        discount: productModel.discount),
+                      style: titilliumSemiBold.copyWith(color: ColorResources.getPrimary(context)),
+                    ),
                       productModel.discount!= null && productModel.discount! > 0 ?
                       Text(PriceConverter.convertPrice(context, productModel.unitPrice),
                       style: titleRegular.copyWith(
@@ -99,11 +106,6 @@ class ProductWidget extends StatelessWidget {
                     const SizedBox(height: 2,),
 
 
-                    Text(PriceConverter.convertPrice(context,
-                        productModel.unitPrice, discountType: productModel.discountType,
-                        discount: productModel.discount),
-                      style: titilliumSemiBold.copyWith(color: ColorResources.getPrimary(context)),
-                    ),
 
 
 
@@ -134,6 +136,10 @@ class ProductWidget extends StatelessWidget {
               ),
             ),
           ) : const SizedBox.shrink(),
+          Positioned(
+              bottom: 110,
+              left: 20,
+              child: Text(".",style: TextStyle(color:productModel?.productindicator?.toLowerCase()=="veg" ? Colors.green :Colors.red,fontSize: 50),)),
 
         ]),
       ),

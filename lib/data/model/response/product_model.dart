@@ -63,6 +63,7 @@ class Product {
   String? _taxModel;
   int? _minQty;
   int? _refundable;
+  String? _productindicator;
   String? _digitalProductType;
   String? _digitalFileReady;
   String? _taxType;
@@ -92,6 +93,7 @@ class Product {
         String? unit,
         int? minQty,
         int? refundable,
+        String? productindicator,
         String? digitalProductType,
         String? digitalFileReady,
         List<String>? images,
@@ -132,6 +134,9 @@ class Product {
     _minQty = minQty;
     if (refundable != null) {
       _refundable = refundable;
+    }
+    if (productindicator != null) {
+      _productindicator = productindicator;
     }
     if (digitalProductType != null) {
       _digitalProductType = digitalProductType;
@@ -176,6 +181,7 @@ class Product {
   String? get unit => _unit;
   int? get minQty => _minQty;
   int? get refundable => _refundable;
+  String? get productindicator => _productindicator;
   String? get digitalProductType => _digitalProductType;
   String? get digitalFileReady => _digitalFileReady;
   List<String>? get images => _images;
@@ -226,6 +232,9 @@ class Product {
 
     if(json['refundable']!=null){
       _refundable = int.parse(json['refundable'].toString());
+    }
+    if(json['product_indicator']!=null){
+     _productindicator = json['product_indicator'];
     }
     if(json['digital_product_type']!=null){
       _digitalProductType = json['digital_product_type'];
@@ -353,6 +362,7 @@ class Product {
     }
     data['unit'] = _unit;
     data['min_qty'] = _minQty;
+    data['product_indicator'] = _productindicator;
     data['images'] = _images;
     data['thumbnail'] = _thumbnail;
     if (_colors != null) {

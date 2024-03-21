@@ -53,13 +53,13 @@ class ProductSpecification extends StatelessWidget {
           },),
         ) :
         const Center(child: Text('No specification')),
-        const SizedBox(height: Dimensions.paddingSizeDefault),
+      //  const SizedBox(height: Dimensions.paddingSizeDefault),
 
 
-        InkWell(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => SpecificationScreen(specification: productSpecification))),
-            child: Text(getTranslated('view_full_detail', context)!,
-              style: titleRegular.copyWith(color: Theme.of(context).primaryColor),))
+        // InkWell(
+        //     onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => SpecificationScreen(specification: productSpecification))),
+        //     child: Text(getTranslated('view_full_detail', context)!,
+        //       style: titleRegular.copyWith(color: Theme.of(context).primaryColor),))
 
       ],
     );

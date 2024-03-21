@@ -89,6 +89,8 @@ class TodaysSpecicalWidget extends StatelessWidget {
                             ),
                           ),
                         ),
+
+
                         Container(width: MediaQuery.of(context).size.width/2.5,
                             padding: const EdgeInsets.only(left: 2,top: 10),
                             child: Center(
@@ -100,6 +102,11 @@ class TodaysSpecicalWidget extends StatelessWidget {
                             )),
                       ],
                     ),
+                  ),
+                  Positioned(
+                    bottom: 100,
+                      left: 30,
+                      child:Text(".",style: TextStyle(color:product?.productindicator?.toLowerCase()=="veg" ? Colors.green :Colors.red,fontSize: 50),)
                   ),
 
                   Positioned(right: 20,top: 0,

@@ -103,6 +103,12 @@ class RecommendedProductView extends StatelessWidget {
                               ],
                             ),
                           ):const SizedBox(),
+                          Positioned(
+                              bottom: 100,
+                              left: 30,
+                              child:Text(".",style: TextStyle(color:recommended.recommendedProduct?.productindicator?.toLowerCase()=="veg" ? Colors.green :Colors.red,fontSize: 50),)
+                          ),
+
 
                           Positioned(right: 0,top: 0,
                             child: SizedBox(width: MediaQuery.of(context).size.width/2.5,
@@ -111,14 +117,24 @@ class RecommendedProductView extends StatelessWidget {
                             Center(
                               child: Column(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                Text('${double.parse(ratting!).toStringAsFixed(1)} ${getTranslated('out_of_5', context)}',
-                                    style: titilliumBold.copyWith(fontSize: Dimensions.fontSizeLarge)),
-                                  Row(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      RatingBar(rating: double.parse(ratting), size: 18,),
-                                      Text('(${ratting.toString()})')
-                                    ],
-                                  ),
+                                // Text('${double.parse(ratting!).toStringAsFixed(1)} ${getTranslated('out_of_5', context)}',
+                                //     style: titilliumBold.copyWith(fontSize: Dimensions.fontSizeLarge)),
+                                //   Row(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
+                                //     children: [
+                                //       RatingBar(rating: double.parse(ratting), size: 18,),
+                                //       Text('(${ratting.toString()})')
+                                //     ],
+                                //   ),
+                                  recommended.recommendedProduct != null && recommended.recommendedProduct!.unitPrice != null?
+                                  Text(
+                                    PriceConverter.convertPrice(context, recommended.recommendedProduct!.unitPrice,
+                                        discountType: recommended.recommendedProduct!.discountType,
+                                        discount: recommended.recommendedProduct!.discount),
+                                    style: titilliumSemiBold.copyWith(
+                                      color: ColorResources.getPrimary(context),
+                                      fontSize: Dimensions.fontSizeExtraLarge,
+                                    ),
+                                  ):const SizedBox(),
 
                                 const SizedBox(height: Dimensions.paddingSizeExtraExtraSmall),
                                 recommended.recommendedProduct !=null && recommended.recommendedProduct!.discount!= null && recommended.recommendedProduct!.discount! > 0  ? Text(
@@ -130,16 +146,7 @@ class RecommendedProductView extends StatelessWidget {
                                   ),
                                 ) : const SizedBox.shrink(),
                                 const SizedBox(height: Dimensions.paddingSizeExtraExtraSmall),
-                                recommended.recommendedProduct != null && recommended.recommendedProduct!.unitPrice != null?
-                                Text(
-                                  PriceConverter.convertPrice(context, recommended.recommendedProduct!.unitPrice,
-                                      discountType: recommended.recommendedProduct!.discountType,
-                                      discount: recommended.recommendedProduct!.discount),
-                                  style: titilliumSemiBold.copyWith(
-                                    color: ColorResources.getPrimary(context),
-                                    fontSize: Dimensions.fontSizeExtraLarge,
-                                  ),
-                                ):const SizedBox(),
+
 
                               ],),
                             ),),

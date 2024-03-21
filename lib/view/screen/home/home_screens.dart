@@ -229,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                               padding: const EdgeInsets.symmetric(
                                 horizontal: Dimensions.homePagePadding, /*vertical: Dimensions.paddingSizeExtraExtraSmall*/
                               ),
-                              color: Colors.black,
+                             // color: Colors.black,
                               alignment: Alignment.center,
                               child: Container(padding: const EdgeInsets.only(
                                 left: Dimensions.homePagePadding, right: Dimensions.paddingSizeExtraSmall,

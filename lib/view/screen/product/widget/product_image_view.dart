@@ -121,7 +121,10 @@ class ProductImageView extends StatelessWidget {
                   ],
                 ),
               ),
-
+              Positioned(
+                bottom: 30,left: 20,
+                  child:   Text(".",style: TextStyle(color:productModel?.productindicator?.toLowerCase()=="veg" ? Colors.green :Colors.red,fontSize: 50),)
+              )
 
               // productModel!.unitPrice !=null && productModel!.discount != 0 ?
               // Positioned(
